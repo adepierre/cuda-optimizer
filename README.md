@@ -7,6 +7,8 @@ Don't take this repo as a ready to use product. This was just a way for me to le
 
 I tested it using a "simple" MLP forward pass. Inputs and outputs dimensions can change at runtime (with some constraints) while layer sizes and batch size are compile time constants. All dimensions but the batch size are small, so all multiplications are between very rectangular matrices, far from the square case that's used most of the time all over the internet. Initial implementation is a very naive one on purpose to let the model explore freely. I used a quantized version of Qwen 3.8 27b, with thinking set to medium, so not quite the latest frontier model level with trillions of parameters but results are still pretty decent going from 10.87ms for the baseline implementation to 0.49ms at the end. Only one iteration failed due to a runtime crash during benchmark, the 115 other iterations generated valid code within the 5 retry attempts. The final version of the code can be found in ``cuda/optimized/impl.cu``.
 
+<img width="1800" height="750" alt="timing_history_tokens" src="https://github.com/user-attachments/assets/9e0e4634-1bcc-44b7-8855-d56a9077f34c" />
+
 
 ## Custom cuda code
 
