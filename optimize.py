@@ -232,7 +232,7 @@ def main():
                 messages.append({
                     "role": "tool",
                     "tool_call_id": submit.tool_call_id,
-                    "content": llm.build_retry_error_message(retry_error),
+                    "content": f"## Your last submission failed, fix it rather than trying something new:\n{retry_error[:2000]}",
                 })
             else:
                 messages.append({
