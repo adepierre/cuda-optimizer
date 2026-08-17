@@ -21,3 +21,7 @@ If you run a local model, make sure it doesn't run on the default GPU as this is
 
 It will clean any previous run, create a new branch, initialize the optimized cuda code with your baseline implementation and start the optimization loop. Every time a version of the code performs better than the previous best one, a commit with the code will be created so you can easily retrace the history of the code.
 
+
+## Limitations
+
+This is currently limited to optimizing the code without chaning the values too much (error on the output tensors must be < 1e-4). It means that some algorithmic changes can't be tested/considered. For example, if you have a kernel generating random values, using a different sampling algorithm could be faster while keeping the same distribution, but the current validation requires the values to be the same so the LLM can't explore in this direction.
