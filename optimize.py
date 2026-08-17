@@ -132,6 +132,9 @@ def main():
         config.REFERENCE_PATH,
         config.IMPL_PATH,
     )
+    
+    runner.git("add", str(config.IMPL_PATH))
+    runner.git("commit", "-m", "Initialize optimized cuda file with baseline")
 
     # Clean temp folders and stale snapshots
     if config.BUILD_DIR.exists():
