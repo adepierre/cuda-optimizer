@@ -25,3 +25,5 @@ It will clean any previous run, create a new branch, initialize the optimized cu
 ## Limitations
 
 This is currently limited to optimizing the code without chaning the values too much (error on the output tensors must be < 1e-4). It means that some algorithmic changes can't be tested/considered. For example, if you have a kernel generating random values, using a different sampling algorithm could be faster while keeping the same distribution, but the current validation requires the values to be the same so the LLM can't explore in this direction.
+
+Benchmark is also not perfect. It's just a timed execution in a loop with a few warmups at the beginning. There is no guarantee that the measured performance will be perfect and some tests can return better/worse results due to slightly different GPU clock, thermal throttling or other external parameters.
